@@ -370,6 +370,105 @@ h6 {
   }
 }
 
+/* Google-like toggle switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px; /* Makes the switch round */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+/* Button Container Styling */
+.feature-category-buttons {
+    display: flex; /* Use flexbox for easy alignment */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    margin-bottom: 30px;
+}
+/* Button Styles */
+.feature-category-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px; 
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 25px; /* Increased border-radius for more rounded corners */
+    transition: background-color 0.3s ease;
+}
+
+
+.feature-category-buttons button.active {
+    background-color: #4285F4; 
+    color: white;
+}
+input:checked + .slider {
+  background-color: #4285F4; /* Google blue when active */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4285F4;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(86px);
+  -ms-transform: translateX(86px);
+  transform: translateX(86px);
+}
+
+.label {
+  position: absolute;
+  top: 8px; /* Adjust vertical position as needed */
+  transition: opacity 0.3s ease;
+}
+
+.label.left {
+  left: 10px;
+}
+
+.label.right {
+  right: 10px;
+}
+
+input:checked + .slider .label.left {
+  opacity: 0;
+}
+
+input:checked + .slider .label.right {
+  opacity: 1;
+}
+
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/

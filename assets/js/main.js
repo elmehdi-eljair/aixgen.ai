@@ -68,6 +68,50 @@
     });
   }
 
+const buttons = document.querySelectorAll('.feature-category-buttons button');
+const featureLists = document.querySelectorAll('.feature-list');
+
+// Initially hide all feature lists except the first one (lifestyle)
+featureLists.forEach(list => {
+    if (list.dataset.category !== "lifestyle") {
+        list.classList.add('hidden');
+    }
+});
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const category = button.dataset.category;
+        featureLists.forEach(list => {
+            if (list.dataset.category === category) {
+                list.classList.remove('hidden');
+            } else {
+                list.classList.add('hidden');
+            }
+        });
+    });
+});
+
+	function showFeatures(categoryId) {
+    const featureLists = document.querySelectorAll('.feature-list');
+    featureLists.forEach(list => {
+        list.style.display = (list.id === categoryId) ? 'flex' : 'none';
+    });
+  
+    // Update button styles (optional)
+    const buttons = document.querySelectorAll('.feature-category-buttons button');
+    buttons.forEach(btn => {
+        if (btn.dataset.category === categoryId) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+
   /**
    * Scroll top button
    */
@@ -88,6 +132,8 @@
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
+
+
 
   /**
    * Animation on scroll function and init

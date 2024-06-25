@@ -29,6 +29,111 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
+
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .section-title h2 {
+            font-weight: 700;
+            color: #4285F4;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section-title p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .feature-card {
+            margin-bottom: 20px;
+        }
+        .feature-card .card-content {
+            display: flex;
+            align-items: center;
+        }
+        .feature-card .card-content .material-icons {
+            font-size: 40px;
+            color: #4285F4;
+            margin-right: 15px;
+        }
+        .feature-card .card-content .card-title {
+            margin: 0;
+        }
+        .cta-buttons {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-buttons .btn {
+            background-color: #4285F4;
+            color: white;
+            margin: 10px;
+        }
+		.card {
+    border: none;
+    background: #f8f9fa;
+    margin-bottom: 20px;
+}
+
+.feature-card .card-body {
+    text-align: center;
+}
+
+.feature-card .icon {
+    font-size: 2rem;
+    color: #4285F4;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Button Container Styling */
+.feature-category-buttons {
+    display: flex; /* Use flexbox for easy alignment */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    margin-bottom: 30px;
+}
+/* Button Styles */
+.feature-category-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px; 
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 25px; /* Increased border-radius for more rounded corners */
+    transition: background-color 0.3s ease;
+}
+
+
+.feature-category-buttons button.active {
+    background-color: #4285F4; 
+    color: white;
+}
+/* Feature Description Styling */
+.feature-description {
+    padding: 15px; /* Increased padding for better readability */
+    background-color: #fff; /* White background */
+    border: 1px solid #eee; /* Subtle border */
+    border-radius: 8px;  /* Rounded corners */
+    font-size: 14px;  /* Slightly smaller font size */
+    line-height: 1.4; /* Better line height for readability */
+    margin-bottom: 15px;
+}
+</style>
 
   <!-- =======================================================
   * Template Name: Vesperr
@@ -166,55 +271,156 @@
     
 
     <!-- Services Section -->
-    <section id="services" class="services section">
+   <section id="services" class="services section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Our Verticals: Proven Solutions for Every Industry</h2>
+    <p>See how our platform has helped businesses like yours achieve success in the digital marketplace.</p>
+  </div>
 
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <i class="bi bi-activity"></i>
-              <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <i class="bi bi-bounding-box-circles"></i>
-              <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <i class="bi bi-calendar4-week"></i>
-              <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <i class="bi bi-broadcast"></i>
-              <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div><!-- End Service Item -->
-
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100" onclick="showDetails('fintech')">
+        <div class="service-item position-relative">
+          <i class="bi bi-graph-up"></i>
+          <h4>Fintech</h4>
+          <p>Launch your superapp faster with our white-label platform. Gain agility, flexibility, and reach underserved markets.</p>
         </div>
-
       </div>
 
-    </section><!-- /Services Section -->
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200" onclick="showDetails('banks')">
+        <div class="service-item position-relative">
+          <i class="bi bi-bank2"></i>
+          <h4>Banks</h4>
+          <p>Modernize your digital banking and become a Living Bank with open banking capabilities and lifestyle finance integrations.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300" onclick="showDetails('retailers')">
+        <div class="service-item position-relative">
+          <i class="bi bi-shop"></i>
+          <h4>Retailers</h4>
+          <p>Streamline in-store and online payments, boost loyalty with rewards programs, and gain valuable customer insights.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400" onclick="showDetails('ecommerce')">
+        <div class="service-item position-relative">
+          <i class="bi bi-cart4"></i>
+          <h4>E-commerce</h4>
+          <p>Optimize your checkout process, accept payments globally, reduce cart abandonment, and drive sales growth.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container" id="detailSection">
+    <div class="row gy-4 detail-content" id="fintechDetails">
+        <h2>Accelerate Your Fintech Growth with a World-Class Superapp Platform</h2>
+        <p>Whether you're launching a new venture or scaling an existing one, our white-label platform empowers you to build a customized superapp that drives customer engagement and revenue.</p>
+        <h3>Features & Benefits:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-body">
+                        <i class="bi bi-card-checklist icon"></i>
+                        <h5 class="card-title">White-Label Solution</h5>
+                        <p class="card-text">Launch a fully branded superapp in record time, whether you're a startup or an established player. Tailor the user interface, features, and functionality to match your unique brand identity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-body">
+                        <i class="bi bi-columns-gap icon"></i>
+                        <h5 class="card-title">Modular Platform</h5>
+                        <p class="card-text">Choose the financial services that align with your business goals. Easily add or remove modules like digital wallets, payment processing, savings accounts, loans, and investments as your needs evolve.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-body">
+                        <i class="bi bi-plug icon"></i>
+                        <h5 class="card-title">Flexible APIs</h5>
+                        <p class="card-text">Seamlessly integrate our platform with your existing systems and third-party providers, giving you the freedom to innovate and expand your offerings.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-body">
+                        <i class="bi bi-people icon"></i>
+                        <h5 class="card-title">Financial Inclusion Focus</h5>
+                        <p class="card-text">Reach underserved markets and expand your customer base with a platform designed for emerging economies, supporting multiple currencies and local payment methods.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-body">
+                        <i class="bi bi-shield-lock icon"></i>
+                        <h5 class="card-title">Enterprise-Grade Security</h5>
+                        <p class="card-text">Protect your users' sensitive financial data with our robust security features and compliance protocols, meeting the highest industry standards.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-body">
+                        <i class="bi bi-bar-chart icon"></i>
+                        <h5 class="card-title">Scalable Infrastructure</h5>
+                        <p class="card-text">Our platform is built to handle high transaction volumes and user growth, ensuring a seamless experience as your business scales.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-body">
+                        <i class="bi bi-person-check icon"></i>
+                        <h5 class="card-title">Dedicated Support</h5>
+                        <p class="card-text">Our team of experts will provide personalized guidance throughout the implementation process and ongoing support to ensure your success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>Call to Action:</h3>
+        <ul>
+            <li><strong>Book a Personalized Demo:</strong> Discover how our platform can help you accelerate your fintech growth, no matter where you are in your journey.</li>
+            <li><strong>Request a Consultation:</strong> Talk to our experts to discuss your unique requirements and get a tailored solution for your business.</li>
+        </ul>
+    </div>
+</div>
+
+
+    <div class="row gy-4 detail-content" id="banksDetails">
+      </div>
+
+    <div class="row gy-4 detail-content" id="retailersDetails">
+      </div>
+
+    <div class="row gy-4 detail-content" id="ecommerceDetails">
+      </div>
+  </div>
+</section>
+
+
+<script>
+// Function to show details 
+function showDetails(categoryId) {
+    const detailSections = document.querySelectorAll('.detail-content');
+    detailSections.forEach(section => {
+        section.style.display = (section.id === categoryId + 'Details') ? 'block' : 'none';
+    });
+
+    // Scroll to detail section smoothly
+    const detailSection = document.getElementById('detailSection');
+    detailSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+
+</script>
 
     <!-- Alt Services Section -->
     <section id="alt-services" class="alt-services section">
@@ -287,107 +493,361 @@
     </section><!-- /Alt Services Section -->
 
     <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+  <section id="features" class="features section">
+    <div class="container section-title" data-aos="fade-up">
         <h2>Features</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <p>Our comprehensive platform offers a wide range of financial and lifestyle services tailored to your needs.</p>
+    </div>
 
-      <div class="container">
+       <div class="container feature-category-buttons" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-2 col-md-4 text-center">
+            <button class="active" onclick="showFeatures('lifestyleFeatures')">Lifestyle Services</button>
+        </div>
+        <div class="col-lg-2 col-md-4 text-center">
+            <button onclick="showFeatures('financialFeatures')">Financial Services</button>
+        </div>
+    </div>
 
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="features-item">
-              <i class="bi bi-eye" style="color: #ffbb2c;"></i>
-              <h3><a href="" class="stretched-link">Lorem Ipsum</a></h3>
+    <div class="container">
+        <div class="row gy-4 feature-list" id="lifestyleFeatures">
+   
+            <div class="col-lg-3 col-md-4">
+      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#ewalletDescription" aria-expanded="false" aria-controls="ewalletDescription">
+        <i class="bi bi-wallet2"></i>
+        <h3>eWallet</h3>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="collapse feature-description" id="ewalletDescription">
+            <p>A secure and convenient digital wallet for storing funds, making payments, and managing finances.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4">
+      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#cashInOutDescription" aria-expanded="false" aria-controls="cashInOutDescription">
+        <i class="bi bi-cash-coin"></i>
+        <h3>Cash In/Out</h3>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="collapse feature-description" id="cashInOutDescription">
+            <p>Easily deposit and withdraw money from your digital wallet at supported locations or through online channels.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4">
+      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#sendMoneyDescription" aria-expanded="false" aria-controls="sendMoneyDescription">
+        <i class="bi bi-arrow-left-right"></i>
+        <h3>Send Money</h3>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="collapse feature-description" id="sendMoneyDescription">
+            <p>Quickly and securely transfer money to other users within the app or to external bank accounts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4">
+      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#buyGoodsDescription" aria-expanded="false" aria-controls="buyGoodsDescription">
+        <i class="bi bi-cart"></i>
+        <h3>Buy Goods</h3>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="collapse feature-description" id="buyGoodsDescription">
+            <p>Make purchases directly from the app using your eWallet balance or linked payment methods.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4">
+      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#payBillsDescription" aria-expanded="false" aria-controls="payBillsDescription">
+        <i class="bi bi-receipt"></i>
+        <h3>Pay Bills</h3>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="collapse feature-description" id="payBillsDescription">
+            <p>Conveniently pay your utility bills, phone bills, and other recurring payments directly from the app.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4">
+      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#buyAirtimeDescription" aria-expanded="false" aria-controls="buyAirtimeDescription">
+        <i class="bi bi-phone"></i>
+        <h3>Buy Airtime</h3>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="collapse feature-description" id="buyAirtimeDescription">
+            <p>Recharge your mobile phone or purchase airtime for others directly from your eWallet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+           <div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#bulkDisbursementDescription" aria-expanded="false" aria-controls="bulkDisbursementDescription">
+        <i class="bi bi-people"></i>
+        <h3>Bulk Disbursement</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="bulkDisbursementDescription">
+                <p>Efficiently distribute funds to multiple recipients simultaneously, ideal for payroll, vendor payments, or other mass payouts.</p>
             </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="features-item">
-              <i class="bi bi-infinity" style="color: #5578ff;"></i>
-              <h3><a href="" class="stretched-link">Dolor Sitema</a></h3>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#internationalRemittanceDescription" aria-expanded="false" aria-controls="internationalRemittanceDescription">
+        <i class="bi bi-globe"></i>
+        <h3>International Remittance</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="internationalRemittanceDescription">
+                <p>Send money across borders quickly and securely, with competitive exchange rates and low fees.</p>
             </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="features-item">
-              <i class="bi bi-mortarboard" style="color: #e80368;"></i>
-              <h3><a href="" class="stretched-link">Sed perspiciatis</a></h3>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#dynamicQRDescription" aria-expanded="false" aria-controls="dynamicQRDescription">
+        <i class="bi bi-qr-code-scan"></i>
+        <h3>Dynamic QR</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="dynamicQRDescription">
+                <p>Generate unique QR codes for each transaction, providing a secure and convenient way for customers to pay.</p>
             </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="features-item">
-              <i class="bi bi-nut" style="color: #e361ff;"></i>
-              <h3><a href="" class="stretched-link">Magni Dolores</a></h3>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#staticQRDescription" aria-expanded="false" aria-controls="staticQRDescription">
+        <i class="bi bi-qr-code"></i>
+        <h3>Static QR</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="staticQRDescription">
+                <p>Create reusable QR codes for fixed amounts, perfect for small businesses and individual sellers.</p>
             </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="features-item">
-              <i class="bi bi-shuffle" style="color: #47aeff;"></i>
-              <h3><a href="" class="stretched-link">Nemo Enim</a></h3>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#inAppPaymentDescription" aria-expanded="false" aria-controls="inAppPaymentDescription">
+        <i class="bi bi-app-indicator"></i>
+        <h3>In-App Payment</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="inAppPaymentDescription">
+                <p>Seamlessly integrate payments directly into your mobile app, providing a convenient user experience.</p>
             </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="features-item">
-              <i class="bi bi-star" style="color: #ffa76e;"></i>
-              <h3><a href="" class="stretched-link">Eiusmod Tempor</a></h3>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#html5PaymentDescription" aria-expanded="false" aria-controls="html5PaymentDescription">
+        <i class="bi bi-code-slash"></i>
+        <h3>HTML5 Payment</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="html5PaymentDescription">
+                <p>Accept payments directly from your website using a simple and secure HTML5 payment form.</p>
             </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
-            <div class="features-item">
-              <i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
-              <h3><a href="" class="stretched-link">Midela Teren</a></h3>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#onlinePaymentDescription" aria-expanded="false" aria-controls="onlinePaymentDescription">
+        <i class="bi bi-laptop"></i>
+        <h3>Online Payment</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="onlinePaymentDescription">
+                <p>Offer various online payment methods, including credit cards, debit cards, and digital wallets, for a flexible checkout experience.</p>
             </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
-            <div class="features-item">
-              <i class="bi bi-camera-video" style="color: #4233ff;"></i>
-              <h3><a href="" class="stretched-link">Pira Neve</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="900">
-            <div class="features-item">
-              <i class="bi bi-command" style="color: #b2904f;"></i>
-              <h3><a href="" class="stretched-link">Dirada Pack</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1000">
-            <div class="features-item">
-              <i class="bi bi-dribbble" style="color: #b20969;"></i>
-              <h3><a href="" class="stretched-link">Moton Ideal</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1100">
-            <div class="features-item">
-              <i class="bi bi-activity" style="color: #ff5828;"></i>
-              <h3><a href="" class="stretched-link">Verdo Park</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1200">
-            <div class="features-item">
-              <i class="bi bi-brightness-high" style="color: #29cc61;"></i>
-              <h3><a href="" class="stretched-link">Flavor Nivelanda</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
+        </div>
+    </div>
+</div>
 
         </div>
+          
+    </div>
 
-      </div>
+ <div class="container">
+        <div class="row gy-4 feature-list" id="financialFeatures" style="display: none;">
+           <div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#savingsAccountDescription" aria-expanded="false" aria-controls="savingsAccountDescription">
+        <i class="bi bi-piggy-bank"></i>
+        <h3>Savings Accounts</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="savingsAccountDescription">
+                <p>Grow your savings with competitive interest rates and flexible deposit options.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#checkingAccountDescription" aria-expanded="false" aria-controls="checkingAccountDescription">
+        <i class="bi bi-credit-card-2-front"></i>
+        <h3>Checking Accounts</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="checkingAccountDescription">
+                <p>Manage your everyday finances with easy access to your funds and convenient payment options.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#fixedDepositsDescription" aria-expanded="false" aria-controls="fixedDepositsDescription">
+        <i class="bi bi-calendar-event"></i>
+        <h3>Fixed Deposits</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="fixedDepositsDescription">
+                <p>Securely invest your money for a fixed period and earn attractive interest rates.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#investmentsDescription" aria-expanded="false" aria-controls="investmentsDescription">
+        <i class="bi bi-graph-up-arrow"></i>
+        <h3>Investments</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="investmentsDescription">
+                <p>Access a range of investment options to grow your wealth and achieve your financial goals.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#debitCardsDescription" aria-expanded="false" aria-controls="debitCardsDescription">
+        <i class="bi bi-credit-card"></i>
+        <h3>Debit Cards</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="debitCardsDescription">
+                <p>Make purchases and withdraw cash conveniently with a debit card linked to your account.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#creditCardsDescription" aria-expanded="false" aria-controls="creditCardsDescription">
+        <i class="bi bi-credit-card-2-back"></i>
+        <h3>Credit Cards</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="creditCardsDescription">
+                <p>Access credit for purchases and enjoy flexible repayment options with our credit card solutions.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-    </section><!-- /Features Section -->
+           <div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#prepaidCardsDescription" aria-expanded="false" aria-controls="prepaidCardsDescription">
+        <i class="bi bi-wallet"></i>
+        <h3>Prepaid Cards</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="prepaidCardsDescription">
+                <p>Control spending and easily manage your budget with reloadable prepaid cards.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#cardOperationsDescription" aria-expanded="false" aria-controls="cardOperationsDescription">
+        <i class="bi bi-gear"></i>
+        <h3>Card Operations</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="cardOperationsDescription">
+                <p>Manage all your card activities, such as PIN changes, transaction history, and blocking lost or stolen cards.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#personalLoansDescription" aria-expanded="false" aria-controls="personalLoansDescription">
+        <i class="bi bi-cash-stack"></i>
+        <h3>Personal Loans</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="personalLoansDescription">
+                <p>Get quick and easy access to personal loans for various needs with flexible repayment terms.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4">
+    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#mortgagesDescription" aria-expanded="false" aria-controls="mortgagesDescription">
+        <i class="bi bi-house"></i>
+        <h3>Mortgages</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="collapse feature-description" id="mortgagesDescription">
+                <p>Finance your dream home with our comprehensive mortgage solutions tailored to your financial situation.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+			 </div>
+</section>
+
+<script>
+	function showFeatures(categoryId) {
+    const featureLists = document.querySelectorAll('.feature-list');
+    featureLists.forEach(list => {
+        list.style.display = (list.id === categoryId) ? 'flex' : 'none';
+    });
+  
+    // Update button styles (optional)
+    const buttons = document.querySelectorAll('.feature-category-buttons button');
+    buttons.forEach(btn => {
+        if (btn.dataset.category === categoryId) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+
+
+</script>
+
+
+
+<!-- /Features Section -->
 
    
 
@@ -564,6 +1024,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
 
