@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Google-like font */
+    margin: 0;
+    line-height: 1.6;
+    color: #333; /* Dark gray text */
+    background-color: #f5f5f5; /* Light gray background */
+}
+
+section {
+    padding: 80px 0; /* Section padding */
+}
+
+h1, h2, h3 {
+    font-weight: 400; /* Slightly lighter font weight for headings */
+}
+
+/* Hero Section */
+#hero {
+    background-image: url("your-hero-image.jpg"); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px 0; /* Adjust padding as needed */
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#hero button {
+    background-color: #4285F4; /* Google blue */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* What We Offer & Use Cases Sections */
+.features, .use-cases, .options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.feature, .use-case, .option {
+    flex: 1;
+    min-width: 280px;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Integration & Deployment Sections */
+/* (You can style these similarly to What We Offer & Use Cases) */
+
+/* Contact Section */
+#contact form {
+    /* Style your form elements (inputs, labels, button) */
+}
+
+.contact-info {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust styles for smaller screens (e.g., stack sections, reduce padding) */
+}
