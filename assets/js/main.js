@@ -116,41 +116,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingElement = contactForm.querySelector('.loading');
     const errorMessageElement = contactForm.querySelector('.error-message');
     const sentMessageElement = contactForm.querySelector('.sent-message');
-    const thanksSection = document.getElementById('thanks'); 
+    const thanksSection = document.getElementById('thanks');
 
     contactForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Prevent default form submission
 
+        // Show loading message
         loadingElement.style.display = 'block';
-        errorMessageElement.textContent = ''; 
+        errorMessageElement.textContent = ''; // Clear any previous error message
+        sentMessageElement.textContent = ''; // Clear any previous sent message
 
+        // Fetch data from form
+        const formData = new FormData(contactForm);
+        // You can append other data if needed
+        // formData.append('service_id', 'YOUR_SERVICE_ID');
+        // formData.append('template_id', 'YOUR_TEMPLATE_ID');
+        // formData.append('user_id', 'YOUR_USER_ID');
+        
+        // Send form data to Formspree
         fetch(contactForm.action, {
             method: 'POST',
-            body: new FormData(contactForm),
+            body: formData,
             headers: {
                 'Accept': 'application/json'
             }
         })
-        .then(response => {
-            loadingElement.style.display = 'none';
-            if (!response.ok) {
-                throw new Error('Form submission failed.');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Show the "Thank You" section ONLY if submission was successful
-            contactForm.style.display = 'none'; // Hide the contact form
-            thanksSection.style.display = 'block'; // Show the "Thank You" section
-            // (Optional) Scroll to the "Thank You" section
-            thanksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        })
-        .catch(error => {
-            errorMessageElement.textContent = 'Oops! There was an error. Please try again later.';
-            console.error('Formspree Error:', error); 
-        });
+            .then(response => {
+                loadingElement.style.display = 'none'; // Hide loading
+                if (response.ok) {
+                    return response.json(); 
+                } else {
+                    throw new Error('Form submission failed.');
+                }
+            })
+            .then(data => {
+                sentMessageElement.textContent = 'Your message has been sent. Thank you!';
+                contactForm.reset(); 
+                setTimeout(() => {
+                    sentMessageElement.textContent = ""; // Clear the message after a few seconds
+                }, 5000); // 5000 milliseconds (5 seconds)
+            })
+            .catch(error => {
+                errorMessageElement.textContent = 'Oops! There was an error. Please try again later.';
+                console.error('Formspree Error:', error);
+            });
     });
 });
+
 
 
 
