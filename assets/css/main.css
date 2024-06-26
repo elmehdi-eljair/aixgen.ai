@@ -492,25 +492,39 @@ h6 {
 }
 
 .detail-content h2 {
-    text-align: center; 
-    max-width: 60%;     
-    margin: 50px auto 20px auto; /* Increased top margin to 50px */
-    padding: 20px;     
+  text-align: center;
+  max-width: 90%;   /* Adjusted for mobile readability */
+  margin: 50px auto 20px auto;
+  padding: 20px;
 }
 
 .detail-content p {
-    text-align: left; /* Center the text */
-    max-width: 90%;     /* Limit width to 60% of the container */
-    margin: 20px auto;   /* Center the element horizontally with auto margin */
-    padding: 20px;       /* Add padding around the text */
+  text-align: left; 
+  max-width: 90%;   /* Adjusted for mobile readability */
+  margin: 20px auto;
+  padding: 20px;   
 }
 
 .detail-content ul {
-    text-align: left;
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 0;
+  text-align: left;
+  max-width: 90%;   /* Adjusted for mobile readability */
+  margin: 0 auto;
+  padding: 0;
 }
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) { 
+  .detail-content h2 {
+    font-size: 28px;   /* Smaller font size on mobile */
+    padding: 15px;      /* Reduce padding on mobile */
+  }
+
+  .detail-content p {
+    font-size: 16px;  /* Smaller font size on mobile */
+    padding: 10px;     /* Reduce padding on mobile */
+  }
+}
+
 
 .action-card .card-body {
   display: flex; /* Enable flexbox for alignment */
