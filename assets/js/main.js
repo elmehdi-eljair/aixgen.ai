@@ -111,6 +111,35 @@ buttons.forEach(button => {
     });
 }
 
+const form = document.querySelector('.php-email-form');
+// ... (rest of your JavaScript)
+
+form.addEventListener('submit', (event) => {
+    // ...(previous code)
+
+    .then(response => {
+      loadingElement.style.display = 'none'; 
+      if (!response.ok) {
+        throw new Error('Form submission failed.');
+      }
+      return response.json();
+    })
+    .then(data => {
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('language') || 'en'; // Get language or default to 'en'
+
+        sentMessageElement.textContent = data.message || `Your message has been sent. Thank you!`;
+        // Redirect to the "Thank You" section
+        window.location.href = `#thanks?language=${lang}`; 
+        
+    })
+    .catch(error => {
+      errorMessageElement.textContent = error;
+    });
+});
+
+
 
   /**
    * Scroll top button
