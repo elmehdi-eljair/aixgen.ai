@@ -109,13 +109,24 @@
 }
 /* Button Styles */
 .feature-category-buttons button {
-    padding: 10px 20px;
-    margin: 0 10px; 
-    border: none;
-    background-color: #f0f0f0;
-    cursor: pointer;
-    border-radius: 25px; /* Increased border-radius for more rounded corners */
-    transition: background-color 0.3s ease;
+  padding: 10px 20px; /* Adjust padding for smaller screens */
+  margin: 0 5px;      /* Adjust margin for smaller screens */
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  font-size: 16px;    /* Slightly smaller default font size */
+  width: auto;        /* Let buttons take up natural width based on content */
+  flex: 1;            /* Allow buttons to grow equally within their container */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+  .feature-category-buttons button {
+    font-size: 14px;  /* Further reduce font size on smaller screens */
+    padding: 8px 15px; /* Reduce padding further on smaller screens */
+  }
 }
 
 
@@ -146,19 +157,19 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Aixgen Technologies</h1>
-      </a>
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <h1 class="sitename">Aixgen Technologies</h1>
+      <h2 class="slogan">Digital Wallets & Lifestyle Finance</h2>  
+	  </a>
+
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home<br></a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#about">Who we are</a></li>
           <li><a href="#industries">Industries</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#integration">Integration</a></li>
@@ -216,7 +227,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About Us</h2>
+        <h2>Who we are</h2>
         <p>To empower businesses and individuals with accessible, secure, and innovative financial solutions that create lasting positive impact in communities around the world</p>
       </div><!-- End Section Title -->
 
@@ -280,13 +291,12 @@
 
   <div class="container">
     <div class="row gy-4">
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100" onclick="showDetails('fintech')">
-        <div class="service-item position-relative">
-          <i class="bi bi-graph-up"></i>
-          <h4>Fintech</h4>
-          <p>Launch your superapp faster with our white-label platform. Gain agility, flexibility, and reach underserved markets.</p>
-        </div>
+       <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100" onclick="showDetails('fintech')">
+      <div class="service-item position-relative active"> <i class="bi bi-graph-up"></i>
+        <h4>Fintech</h4>
+        <p>Launch your superapp faster with our white-label platform. Gain agility, flexibility, and reach underserved markets.</p>
       </div>
+    </div>
 
       <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200" onclick="showDetails('banks')">
         <div class="service-item position-relative">
@@ -316,10 +326,10 @@
   </div>
 
   <div class="container" id="detailSection">
-    <div class="row gy-4 detail-content" id="fintechDetails">
-        <h2>Accelerate Your Fintech Growth with a World-Class Superapp Platform</h2>
-        <p>Whether you're launching a new venture or scaling an existing one, our white-label platform empowers you to build a customized superapp that drives customer engagement and revenue.</p>
-        <h3>Features & Benefits:</h3>
+    <div class="row gy-4 detail-content" id="fintechDetails" style="display: block;"> 
+		<h2>Accelerate Your Fintech Growth with a World-Class Superapp Platform</h2>
+		<p>Whether you're launching a new venture or scaling an existing one, our white-label platform empowers you to build a customized superapp that drives customer engagement and revenue.</p>
+
         <div class="row">
             <div class="col-md-4">
                 <div class="card feature-card">
@@ -385,57 +395,79 @@
                 </div>
             </div>
         </div>
-        <h3>Next steps:</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card action-card">
-                    <div class="card-body">
-                        <i class="bi bi-calendar2-check icon"></i>
-                        <h5 class="card-title">Book a Personalized Demo</h5>
-                        <p class="card-text">Discover how our platform can help you accelerate your fintech growth, no matter where you are in your journey.</p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
-                    </div>
+		    
+
+        <h2>How to go forward ?</h2>
+     <div class="row">
+    <div class="col-md-6">
+        <div class="card action-card">
+            <div class="card-body d-flex align-items-center">
+                <i class="bi bi-calendar2-check icon"></i> 
+                <div class="card-content">
+                    <h5 class="card-title">Book a Personalized Demo</h5>
+                    <p class="card-text">Discover how our platform can help you accelerate your fintech growth, no matter where you are in your journey.</p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card action-card">
-                    <div class="card-body">
-                        <i class="bi bi-chat-dots icon"></i>
-                        <h5 class="card-title">Request a Consultation</h5>
-                        <p class="card-text">Talk to our experts to discuss your unique requirements and get a tailored solution for your business.</p>
-                        <a href="#" class="btn btn-primary">Request Now</a>
-                    </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card action-card">
+            <div class="card-body d-flex align-items-center">
+                <i class="bi bi-chat-dots icon"></i>
+                <div class="card-content">
+                    <h5 class="card-title">Request a Consultation</h5>
+                    <p class="card-text">Talk to our experts to discuss your unique requirements and get a tailored solution for your business.</p>
+                    <a href="#" class="btn btn-primary">Request Now</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+		  
+    </div>
+</div>
 
-    <div class="row gy-4 detail-content" id="banksDetails">
+
+    <div class="row gy-4 detail-content" id="banksDetails" style="display: none;">
       </div>
 
-    <div class="row gy-4 detail-content" id="retailersDetails">
+    <div class="row gy-4 detail-content" id="retailersDetails" style="display: none;">
       </div>
 
-    <div class="row gy-4 detail-content" id="ecommerceDetails">
+    <div class="row gy-4 detail-content" id="ecommerceDetails" style="display: none;">
       </div>
   </div>
 </section>
 
 
 <script>
-// Function to show details 
+// Function to show details (modified)
 function showDetails(categoryId) {
     const detailSections = document.querySelectorAll('.detail-content');
     detailSections.forEach(section => {
         section.style.display = (section.id === categoryId + 'Details') ? 'block' : 'none';
     });
 
+    // Update button styles (optional)
+    const buttons = document.querySelectorAll('.feature-category-buttons button');
+    buttons.forEach(btn => {
+        if (btn.dataset.category === categoryId) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
     // Scroll to detail section smoothly
     const detailSection = document.getElementById('detailSection');
     detailSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+// Show Fintech details by default on page load
+showDetails('fintech');
+
 
 
 </script>
@@ -448,14 +480,14 @@ function showDetails(categoryId) {
         <p>Our comprehensive platform offers a wide range of financial and lifestyle services tailored to your needs.</p>
     </div>
 
-       <div class="container feature-category-buttons" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-lg-2 col-md-4 text-center">
-            <button class="active" onclick="showFeatures('lifestyleFeatures')">Lifestyle Services</button>
-        </div>
-        <div class="col-lg-2 col-md-4 text-center">
-            <button onclick="showFeatures('financialFeatures')">Financial Services</button>
-        </div>
+      <div class="container feature-category-buttons" data-aos="fade-up" data-aos-delay="100">
+    <div class="col-md-3 text-center"> 
+        <button class="active" onclick="showFeatures('lifestyleFeatures')">Lifestyle Services</button>
     </div>
+    <div class="col-md-3 text-center">
+        <button onclick="showFeatures('financialFeatures')">Financial Services</button>
+    </div>
+</div>
 
     <div class="container">
         <div class="row gy-4 feature-list" id="lifestyleFeatures">

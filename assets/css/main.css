@@ -433,6 +433,99 @@ h6 {
     background-color: #4285F4; 
     color: white;
 }
+
+/* In your style.css file */
+
+/* Logo Container Styling (Align left) */
+.logo {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left (important!) */
+}
+
+.logo .sitename {
+    margin: 0; /* Remove default margin for better control */
+    text-align: left;
+}
+
+.logo .slogan {
+    font-size: 18px; 
+    font-weight: 300; 
+    color: #666;      
+    margin-top: 5px;
+	margin-left: 0; /* Remove default margin for better control */
+    text-align: left; 
+}
+
+/* Button Container Styling */
+.feature-category-buttons {
+    display: flex; /* Use flexbox for easy alignment */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    margin-bottom: 30px;
+}
+/* Button Styles */
+.feature-category-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px; 
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 25px; /* Increased border-radius for more rounded corners */
+    transition: background-color 0.3s ease;
+}
+
+
+.feature-category-buttons button.active {
+    background-color: #4285F4; 
+    color: white;
+}
+/* Feature Description Styling */
+.feature-description {
+    padding: 15px; /* Increased padding for better readability */
+    background-color: #fff; /* White background */
+    border: 1px solid #eee; /* Subtle border */
+    border-radius: 8px;  /* Rounded corners */
+    font-size: 14px;  /* Slightly smaller font size */
+    line-height: 1.4; /* Better line height for readability */
+    margin-bottom: 15px;
+}
+
+.detail-content h2 {
+    text-align: center; 
+    max-width: 60%;     
+    margin: 50px auto 20px auto; /* Increased top margin to 50px */
+    padding: 20px;     
+}
+
+.detail-content p {
+    text-align: left; /* Center the text */
+    max-width: 90%;     /* Limit width to 60% of the container */
+    margin: 20px auto;   /* Center the element horizontally with auto margin */
+    padding: 20px;       /* Add padding around the text */
+}
+
+.detail-content ul {
+    text-align: left;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.action-card .card-body {
+  display: flex; /* Enable flexbox for alignment */
+  align-items: center; /* Align icon and text vertically */
+}
+
+.action-card .icon {
+  font-size: 3rem; /* Increase icon size */
+  margin-right: 15px; /* Add space between icon and text */
+}
+
+.action-card .card-content {
+  text-align: left; /* Align text to left if needed */
+}
+
 input:checked + .slider {
   background-color: #4285F4; /* Google blue when active */
 }
