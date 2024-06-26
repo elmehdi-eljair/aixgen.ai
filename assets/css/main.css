@@ -515,7 +515,7 @@ h6 {
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) { 
   .detail-content h2 {
-    font-size: 28px;   /* Smaller font size on mobile */
+    font-size: 22px;   /* Smaller font size on mobile */
     padding: 15px;      /* Reduce padding on mobile */
   }
 
