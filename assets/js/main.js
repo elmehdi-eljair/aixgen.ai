@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const thanksSection = document.getElementById('thanks');
 
     contactForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); // Prevent the default form submission
 
         // Show loading message
         loadingElement.style.display = 'block';
@@ -128,11 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Fetch data from form
         const formData = new FormData(contactForm);
-        // You can append other data if needed
-        // formData.append('service_id', 'YOUR_SERVICE_ID');
-        // formData.append('template_id', 'YOUR_TEMPLATE_ID');
-        // formData.append('user_id', 'YOUR_USER_ID');
-        
+
         // Send form data to Formspree
         fetch(contactForm.action, {
             method: 'POST',
@@ -144,14 +140,18 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => {
                 loadingElement.style.display = 'none'; // Hide loading
                 if (response.ok) {
-                    return response.json(); 
+                    return response.json();
                 } else {
                     throw new Error('Form submission failed.');
                 }
             })
             .then(data => {
+                // Remove previous code that caused redirect:
+                // window.location.href = `#thanks?language=${lang}`;
+                // Replace with:
+                
                 sentMessageElement.textContent = 'Your message has been sent. Thank you!';
-                contactForm.reset(); 
+                contactForm.reset(); // Clear the form (optional)
                 setTimeout(() => {
                     sentMessageElement.textContent = ""; // Clear the message after a few seconds
                 }, 5000); // 5000 milliseconds (5 seconds)
