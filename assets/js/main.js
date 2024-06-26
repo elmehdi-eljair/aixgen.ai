@@ -116,45 +116,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingElement = contactForm.querySelector('.loading');
     const errorMessageElement = contactForm.querySelector('.error-message');
     const sentMessageElement = contactForm.querySelector('.sent-message');
-    const thanksSection = document.getElementById('thanks');
+    const thanksSection = document.getElementById('thanks'); 
 
     contactForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault(); 
 
-        // Show loading message
         loadingElement.style.display = 'block';
-        errorMessageElement.textContent = ''; // Clear any previous error message
-        sentMessageElement.textContent = ''; // Clear any previous sent message
+        errorMessageElement.textContent = ''; 
 
-        // Fetch data from form
-        const formData = new FormData(contactForm);
-
-        // Send form data to Formspree
         fetch(contactForm.action, {
             method: 'POST',
-            body: formData,
+            body: new FormData(contactForm),
             headers: {
                 'Accept': 'application/json'
             }
         })
             .then(response => {
-                loadingElement.style.display = 'none'; // Hide loading
-                if (response.ok) {
-                    return response.json();
-                } else {
+                loadingElement.style.display = 'none'; 
+                if (!response.ok) {
                     throw new Error('Form submission failed.');
                 }
+                return response.json();
             })
             .then(data => {
-                // Remove previous code that caused redirect:
-                // window.location.href = `#thanks?language=${lang}`;
-                // Replace with:
-                
-                sentMessageElement.textContent = 'Your message has been sent. Thank you!';
-                contactForm.reset(); // Clear the form (optional)
-                setTimeout(() => {
-                    sentMessageElement.textContent = ""; // Clear the message after a few seconds
-                }, 5000); // 5000 milliseconds (5 seconds)
+                if (data.next && data.next.includes('/thanks')) {  // Check for redirect
+                    contactForm.style.display = 'none'; // Hide the form
+                    thanksSection.style.display = 'block'; 
+                    thanksSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+                } else {
+                    // Show the success message if there's no redirect
+                    sentMessageElement.textContent = 'Your message has been sent. Thank you!';
+                    contactForm.reset();
+                    setTimeout(() => {
+                        sentMessageElement.textContent = ""; 
+                    }, 5000); 
+                }
             })
             .catch(error => {
                 errorMessageElement.textContent = 'Oops! There was an error. Please try again later.';
