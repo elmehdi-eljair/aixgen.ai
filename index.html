@@ -85,16 +85,33 @@
     text-align: center;
 }
 
-.feature-card .icon {
-    font-size: 2rem;
-    color: #4285F4;
-    margin-bottom: 15px;
+/* Feature Card Styles */
+.feature-card {
+  margin-bottom: 20px; 
 }
 
-.card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
+.feature-card .icon {
+  font-size: 2.5rem;  
+  margin-bottom: 10px; 
 }
+
+.feature-card .card-title {
+  font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 767px) { /* Adjust for mobile screens */
+  .col-md-4 {
+    flex: 0 0 50%;  /* 2 cards per row on mobile (50% width each) */
+    max-width: 50%;
+  }
+  
+  .feature-card .icon {
+    font-size: 2rem; /* Adjust icon size further on smaller screens if needed */
+  }
+}
+
+
 
 .card-text {
     font-size: 1rem;
