@@ -158,7 +158,56 @@
     line-height: 1.4; /* Better line height for readability */
     margin-bottom: 15px;
 }
-</style>
+
+      /* Announcements Styling */
+.announcement-item {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.announcement-item h4 {
+  font-weight: 600;
+  color: #4285F4;
+}
+
+.announcement-item p {
+  color: #555;
+}
+
+/* Articles Styling */
+.article-item {
+  background: #ffffff;
+  padding: 20px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.article-item h4 {
+  color: #333;
+  font-weight: 600;
+}
+
+.article-item p {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.article-item .read-more {
+  color: #4285F4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article-item .read-more:hover {
+  text-decoration: underline;
+}
+
+  </style>
 
   <!-- =======================================================
   * Template Name: Vesperr
@@ -193,7 +242,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="https://developer.aixgen.ai">Get Started</a>
+      <a class="btn-getstarted" href="index.html#goforward">Get Started</a>
 
     </div>
   </header>
@@ -901,6 +950,56 @@ showDetails('fintech');
   </div>
 </div>
 
+        <!-- Announcements Section -->
+        <section id="announcements" class="section">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Announcements</h2>
+                <p>Stay updated with our latest news and events.</p>
+            </div>
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6">
+                        <div class="announcement-item">
+                            <h4>Google Grant Announcement</h4>
+                            <p>We are thrilled to announce that Google has granted us $350 to further develop the Aixgen Fintech Platform!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="announcement-item">
+                            <h4>Upcoming Webinar - Nov 15th</h4>
+                            <p>Join us for an insightful webinar on November 15th, where we’ll discuss our platform’s features and how it supports fintech innovation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Published Articles Section -->
+        <section id="articles" class="section">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Published Articles</h2>
+                <p>Explore our latest articles on fintech and technology innovations.</p>
+            </div>
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="article-item">
+                            <h4>Title of Article 1</h4>
+                            <p>Brief summary or excerpt of the article...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="article-item">
+                            <h4>Title of Article 2</h4>
+                            <p>Brief summary or excerpt of the article...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <!-- Add more articles as needed -->
+                </div>
+            </div>
+        </section>
 
 
     <!-- Contact Section -->
@@ -992,7 +1091,6 @@ showDetails('fintech');
         <a href="#hero" class="btn btn-primary">Back to Home</a> 
     </div>
 </section>
-
   </main>
 
   <footer id="footer" class="footer">
