@@ -376,6 +376,187 @@
           border: none;
         }
 
+      /* Solutions Showcase Styles */
+.solutions-showcase {
+    padding: 6rem 0;
+    background-color: var(--light);
+}
+
+
+/* Updated styles for the solution cards */
+.solutions-grid {
+    display: grid;
+    /* Adjusted to fit 4 cards in a row with smaller width */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem; /* Reduced gap */
+    margin-bottom: 2rem;
+}
+
+.solution-card {
+    background: white;
+    border-radius: 12px; /* Slightly reduced */
+    padding: 1.5rem; /* Reduced padding */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--light-gray);
+}
+
+.solution-icon {
+    width: 40px; /* Smaller icon */
+    height: 40px;
+    border-radius: 8px;
+    background: var(--gradient-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem; /* Reduced margin */
+}
+
+.solution-title {
+    font-size: 1.1rem; /* Smaller font */
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--dark);
+}
+
+.solution-description {
+    font-size: 0.813rem; /* Smaller font */
+    color: var(--gray);
+    line-height: 1.4;
+}
+.solution-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.solution-card.active {
+    border-color: var(--primary);
+    background: rgba(58, 134, 255, 0.05);
+    box-shadow: var(--shadow);
+}
+
+
+
+.modules-showcase {
+    display: none;
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+}
+
+.modules-showcase.active {
+    display: block;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.module-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid var(--light-gray);
+    transition: all 0.3s ease;
+}
+
+.module-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.module-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.module-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.module-features {
+    list-style: none;
+}
+
+.module-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+}
+
+.module-feature::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+@media (max-width: 992px) {
+    .solutions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show 2 cards per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .solutions-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+
+
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
         /* Features Section */
         .features {
           background-color: white;
@@ -1063,6 +1244,25 @@
     </div>
 </section>
 
+<!-- Solutions Showcase Section -->
+<section class="solutions-showcase section" id="solutions">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">What Do You Want to Build ??</h2>
+            <p class="section-subtitle">Select your use case to explore the modules and capabilities you'll need</p>
+        </div>
+
+        <div class="solutions-grid" data-aos="fade-up" data-aos-delay="100">
+            <!-- Solution cards will be dynamically inserted here -->
+        </div>
+
+        <div class="modules-showcase" id="modulesShowcase" data-aos="fade-up" data-aos-delay="200">
+            <!-- Selected solution modules will be shown here -->
+        </div>
+    </div>
+</section>
+
+
 <!-- Features (Modules) Section -->
 <section class="features section" id="features">
     <div class="container">
@@ -1399,6 +1599,217 @@
         });
       }
     });
+
+   // Solutions data
+const solutions = [
+    {
+        id: 'transfer-app',
+        title: 'P2P Transfer App',
+        description: 'Build a seamless money transfer application with integrated wallet, cards, and rewards',
+        icon: '<i class="fas fa-exchange-alt"></i>',
+        modules: [
+            {
+                title: 'Wallet Core',
+                icon: '<i class="fas fa-wallet"></i>',
+                features: ['Get balance', 'Add bank card', 'Top-up balance', 'Make transfers'],
+                color: '#3b82f6'
+            },
+            {
+                title: 'Payment Processing',
+                icon: '<i class="fas fa-money-bill-wave"></i>',
+                features: ['Wallet-to-wallet transfers', 'Real-time processing', 'Transaction history'],
+                color: '#22c55e'
+            },
+            {
+                title: 'Cards Management',
+                icon: '<i class="fas fa-credit-card"></i>',
+                features: ['Withdraw money', 'Merchant payments', 'Virtual cards'],
+                color: '#8b5cf6'
+            },
+            {
+                title: 'Security & Compliance',
+                icon: '<i class="fas fa-shield-alt"></i>',
+                features: ['Fraud detection', 'KYC verification', 'Risk scoring'],
+                color: '#ef4444'
+            },
+            {
+                title: 'Rewards Engine',
+                icon: '<i class="fas fa-gift"></i>',
+                features: ['Transfer points', 'Rewards program', 'Points redemption'],
+                color: '#eab308'
+            }
+        ]
+    },
+    {
+        id: 'payment-gateway',
+        title: 'Payment Gateway',
+        description: 'Launch a full-featured payment gateway with card processing and settlement capabilities',
+        icon: '<i class="fas fa-network-wired"></i>',
+        modules: [
+            {
+                title: 'Message Processing',
+                icon: '<i class="fas fa-sync"></i>',
+                features: ['ISO8583 processing', 'Network integration', 'Message routing'],
+                color: '#6366f1'
+            },
+            {
+                title: 'Card Networks',
+                icon: '<i class="fas fa-credit-card"></i>',
+                features: ['Visa integration', 'Mastercard integration', 'Discover integration'],
+                color: '#3b82f6'
+            },
+            {
+                title: 'Risk Management',
+                icon: '<i class="fas fa-shield-alt"></i>',
+                features: ['Fraud detection', 'Authorization rules', 'Risk scoring'],
+                color: '#ef4444'
+            },
+            {
+                title: 'Settlement',
+                icon: '<i class="fas fa-building"></i>',
+                features: ['Batch processing', 'Reconciliation', 'Reporting'],
+                color: '#22c55e'
+            }
+        ]
+    },
+    {
+        id: 'superapp',
+        title: 'Super App',
+        description: 'Create a comprehensive financial super app with user and merchant capabilities',
+        icon: '<i class="fas fa-mobile-alt"></i>',
+        modules: [
+            {
+                title: 'User Onboarding',
+                icon: '<i class="fas fa-user-plus"></i>',
+                features: ['Digital KYC', 'Account creation', 'Profile management'],
+                color: '#3b82f6'
+            },
+            {
+                title: 'Merchant Services',
+                icon: '<i class="fas fa-store"></i>',
+                features: ['Merchant onboarding', 'Payment acceptance', 'Settlement'],
+                color: '#22c55e'
+            },
+            {
+                title: 'Payments Hub',
+                icon: '<i class="fas fa-money-check-alt"></i>',
+                features: ['Multiple payment methods', 'Split payments', 'Recurring billing'],
+                color: '#8b5cf6'
+            },
+            {
+                title: 'Digital Banking',
+                icon: '<i class="fas fa-landmark"></i>',
+                features: ['Account management', 'Cards issuance', 'Transaction history'],
+                color: '#6366f1'
+            }
+        ]
+    },
+    {
+        id: 'lending-platform',
+        title: 'Lending Platform',
+        description: 'Build a modern lending platform with AI-powered credit scoring and automated disbursement',
+        icon: '<i class="fas fa-hand-holding-usd"></i>',
+        modules: [
+            {
+                title: 'Credit Scoring',
+                icon: '<i class="fas fa-chart-line"></i>',
+                features: ['AI risk assessment', 'Alternative data', 'Credit history'],
+                color: '#3b82f6'
+            },
+            {
+                title: 'Loan Management',
+                icon: '<i class="fas fa-file-invoice-dollar"></i>',
+                features: ['Loan origination', 'Automated disbursement', 'Payment collection'],
+                color: '#22c55e'
+            },
+            {
+                title: 'Risk Analytics',
+                icon: '<i class="fas fa-shield-alt"></i>',
+                features: ['Fraud detection', 'Portfolio analysis', 'Default prediction'],
+                color: '#ef4444'
+            },
+            {
+                title: 'Compliance',
+                icon: '<i class="fas fa-check-circle"></i>',
+                features: ['KYC/AML checks', 'Regulatory reporting', 'Document verification'],
+                color: '#8b5cf6'
+            }
+        ]
+    }
+];
+
+// Initialize solutions showcase
+function initSolutionsShowcase() {
+    const solutionsGrid = document.querySelector('.solutions-grid');
+    const modulesShowcase = document.getElementById('modulesShowcase');
+
+    // Create solution cards
+    solutions.forEach(solution => {
+        const card = document.createElement('div');
+        card.className = 'solution-card';
+        card.dataset.solutionId = solution.id;
+        card.innerHTML = `
+            <div class="solution-icon">
+                ${solution.icon}
+            </div>
+            <h3 class="solution-title">${solution.title}</h3>
+            <p class="solution-description">${solution.description}</p>
+        `;
+
+        card.addEventListener('click', () => showSolutionModules(solution));
+        solutionsGrid.appendChild(card);
+    });
+
+    // Function to display modules for selected solution
+    function showSolutionModules(solution) {
+        // Update active states
+        document.querySelectorAll('.solution-card').forEach(card => {
+            card.classList.remove('active');
+            if (card.dataset.solutionId === solution.id) {
+                card.classList.add('active');
+            }
+        });
+
+        // Show modules
+        modulesShowcase.innerHTML = `
+            <h3 class="section-title" style="font-size: 1.75rem; margin-bottom: 1.5rem;">
+                Required Modules for ${solution.title}
+            </h3>
+            <div class="modules-grid">
+                ${solution.modules.map(module => `
+                    <div class="module-card">
+                        <div class="module-icon" style="background: ${module.color}">
+                            ${module.icon}
+                        </div>
+                        <h4 class="module-title">${module.title}</h4>
+                        <ul class="module-features">
+                            ${module.features.map(feature => `
+                                <li class="module-feature">${feature}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `).join('')}
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://developer.aixgen.ai" class="cta-button" target="_blank">
+                    Start Building
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        `;
+
+        modulesShowcase.classList.add('active');
+
+        // Smooth scroll to modules
+        modulesShowcase.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Show first solution by default
+    showSolutionModules(solutions[0]);
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initSolutionsShowcase);
 </script>
 </body>
 </html>
