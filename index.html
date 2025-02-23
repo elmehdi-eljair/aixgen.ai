@@ -1,1135 +1,1404 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZKSRSRP5D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZKSRSRP5D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-RZKSRSRP5D');
-</script>
+        gtag('config', 'G-RZKSRSRP5D');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aixgen | Core Fintech Backend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        /* Font imports */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-   <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Aixgen Technologies - Digital Wallets & Lifestyle Finance Technologies</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-
-    <link rel="icon" href="assets/img/favicon.png">
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
-
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/vendor/aos/aos.css">
-
-    <link href="assets/css/main.css" rel="stylesheet">
-
-  <style>
-   body {
-            font-family: 'Roboto', sans-serif;
+        /* Reset & Base Styles */
+        :root {
+          --primary: #3a86ff;
+          --primary-dark: #2667cc;
+          --secondary: #ff006e;
+          --dark: #1f2937;
+          --light: #f9fafb;
+          --gray: #6b7280;
+          --light-gray: #e5e7eb;
+          --success: #10b981;
+          --gradient-primary: linear-gradient(135deg, #3a86ff, #38bdf8);
+          --gradient-accent: linear-gradient(135deg, #ff006e, #fb7185);
+          --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+          --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .section-title h2 {
-            font-weight: 700;
-            color: #4285F4;
-            text-align: center;
-            margin-bottom: 20px;
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
         }
-        .section-title p {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
+
+        html {
+          scroll-behavior: smooth;
         }
-        .feature-card {
-            margin-bottom: 20px;
+
+        body {
+          font-family: 'Inter', sans-serif;
+          line-height: 1.5;
+          color: var(--dark);
+          background-color: var(--light);
+          overflow-x: hidden;
         }
-        .feature-card .card-content {
-            display: flex;
-            align-items: center;
+
+        h1, h2, h3, h4, h5, h6 {
+          font-weight: 700;
+          line-height: 1.2;
         }
-        .feature-card .card-content .material-icons {
-            font-size: 40px;
-            color: #4285F4;
-            margin-right: 15px;
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          transition: all 0.3s ease;
         }
-        .feature-card .card-content .card-title {
-            margin: 0;
+
+        img {
+          max-width: 100%;
+          height: auto;
         }
-        .cta-buttons {
-            text-align: center;
-            margin-top: 40px;
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
         }
-        .cta-buttons .btn {
-            background-color: #4285F4;
-            color: white;
-            margin: 10px;
+
+        .btn {
+          display: inline-block;
+          padding: 0.875rem 1.75rem;
+          font-weight: 600;
+          font-size: 1rem;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: none;
+          outline: none;
         }
-		.card {
-    border: none;
-    background: #f8f9fa;
-    margin-bottom: 20px;
+
+        .btn-primary {
+          background: var(--gradient-primary);
+          color: white;
+          box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+          background: transparent;
+          color: var(--primary);
+          border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+          background: var(--primary);
+          color: white;
+        }
+
+        .section {
+          padding: 6rem 0;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+          margin-bottom: 1.5rem;
+          text-align: center;
+        }
+
+        .section-subtitle {
+          font-size: 1.25rem;
+          color: var(--gray);
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 3rem auto;
+        }
+
+       /* Header & Navigation */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
 
-.feature-card .card-body {
-    text-align: center;
+.header.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 0;
 }
 
-/* Feature Card Styles */
-.feature-card {
-  margin-bottom: 20px; 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.feature-card .icon {
-  font-size: 2.5rem;  
-  margin-bottom: 10px; 
-}
-
-.feature-card .card-title {
-  font-weight: bold;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 767px) { /* Adjust for mobile screens */
-  .col-md-4 {
-    flex: 0 0 100%;  /* 1 card per row on mobile (100% width each) */
-    max-width: 100%; 
-  }
-
-  .feature-card .icon {
-    font-size: 2rem; /* Adjust icon size further on smaller screens if needed */
-  }
-}
-
-
-
-
-.card-text {
-    font-size: 1rem;
-    color: #6c757d;
-}
-
-/* Button Container Styling */
-.feature-category-buttons {
-    display: flex; /* Use flexbox for easy alignment */
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-    margin-bottom: 30px;
-}
-/* Button Styles */
-.feature-category-buttons button {
-  padding: 10px 20px; /* Adjust padding for smaller screens */
-  margin: 0 5px;      /* Adjust margin for smaller screens */
-  border: none;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
-  font-size: 16px;    /* Slightly smaller default font size */
-  width: auto;        /* Let buttons take up natural width based on content */
-  flex: 1;            /* Allow buttons to grow equally within their container */
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
-  .feature-category-buttons button {
-    font-size: 14px;  /* Further reduce font size on smaller screens */
-    padding: 8px 15px; /* Reduce padding further on smaller screens */
-  }
-}
-
-
-.feature-category-buttons button.active {
-    background-color: #4285F4; 
-    color: white;
-}
-/* Feature Description Styling */
-.feature-description {
-    padding: 15px; /* Increased padding for better readability */
-    background-color: #fff; /* White background */
-    border: 1px solid #eee; /* Subtle border */
-    border-radius: 8px;  /* Rounded corners */
-    font-size: 14px;  /* Slightly smaller font size */
-    line-height: 1.4; /* Better line height for readability */
-    margin-bottom: 15px;
-}
-
-      /* Announcements Styling */
-.announcement-item {
-  background: #f1f1f1;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.announcement-item h4 {
-  font-weight: 600;
-  color: #4285F4;
-}
-
-.announcement-item p {
-  color: #555;
-}
-
-/* Articles Styling */
-.article-item {
-  background: #ffffff;
-  padding: 20px;
-  border: 1px solid #e1e1e1;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.article-item h4 {
-  color: #333;
-  font-weight: 600;
-}
-
-.article-item p {
-  font-size: 14px;
-  color: #666;
-  margin: 10px 0;
-}
-
-.article-item .read-more {
-  color: #4285F4;
+/* Logo Styling */
+.logo {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.logo img {
+  height: 50px; /* Adjusted height */
+  width: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  color: #1f2937;
   font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.article-item .read-more:hover {
-  text-decoration: underline;
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #3a86ff, #38bdf8);
+  transition: width 0.3s ease;
 }
 
-  </style>
+.nav-link:hover::after {
+  width: 100%;
+}
 
-  <!-- =======================================================
-  * Template Name: Vesperr
-  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
-  * Updated: Jun 14 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+/* Navigation Button */
+.nav-button {
+  background: linear-gradient(135deg, #3a86ff, #38bdf8);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(58, 134, 255, 0.2);
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(58, 134, 255, 0.3);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #1f2937;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem 0;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  .nav-link::after {
+    display: none;
+  }
+}
+
+        /* Hero Section */
+        .hero {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          position: relative;
+          overflow: hidden;
+          padding-top: 5rem;
+        }
+
+        .hero::before {
+          content: '';
+          position: absolute;
+          top: -300px;
+          right: -300px;
+          width: 800px;
+          height: 800px;
+          border-radius: 50%;
+          background: var(--gradient-primary);
+          opacity: 0.1;
+          z-index: -1;
+        }
+
+        .hero::after {
+          content: '';
+          position: absolute;
+          bottom: -200px;
+          left: -200px;
+          width: 500px;
+          height: 500px;
+          border-radius: 50%;
+          background: var(--gradient-accent);
+          opacity: 0.1;
+          z-index: -1;
+        }
+
+        .hero-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: center;
+        }
+
+        .hero-content {
+          max-width: 600px;
+        }
+
+        .hero-tagline {
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          background-color: rgba(58, 134, 255, 0.1);
+          color: var(--primary);
+          border-radius: 50px;
+          font-weight: 600;
+          font-size: 0.875rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+          font-size: 3.5rem;
+          margin-bottom: 1.5rem;
+          line-height: 1.1;
+        }
+
+        .hero-title span {
+          background: var(--gradient-accent);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+
+        .hero-description {
+          font-size: 1.25rem;
+          color: var(--gray);
+          margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          margin-bottom: 2.5rem;
+        }
+
+        .hero-stats {
+          display: flex;
+          gap: 2.5rem;
+        }
+
+        .stat-item {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .stat-value {
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--dark);
+        }
+
+        .stat-label {
+          font-size: 0.875rem;
+          color: var(--gray);
+        }
+
+        .hero-image {
+          position: relative;
+          z-index: 1;
+        }
+
+        .hero-image .video-wrapper {
+          padding-bottom: 56.25%;
+          position: relative;
+          height: 0;
+          overflow: hidden;
+          border-radius: 16px;
+          box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image .video-wrapper iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+
+        /* Features Section */
+        .features {
+          background-color: white;
+          position: relative;
+        }
+
+        .features::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 200px;
+          background: linear-gradient(to bottom, var(--light), white);
+          z-index: 0;
+        }
+
+        .features-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
+          position: relative;
+          z-index: 1;
+        }
+
+        .feature-card {
+          background-color: white;
+          border-radius: 16px;
+          padding: 2.5rem 2rem;
+          box-shadow: var(--shadow);
+          transition: all 0.3s ease;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .feature-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 64px;
+          height: 64px;
+          border-radius: 12px;
+          margin-bottom: 1.5rem;
+          background: var(--gradient-primary);
+          color: white;
+          font-size: 1.75rem;
+        }
+
+        .feature-title {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .feature-description {
+          color: var(--gray);
+          flex-grow: 1;
+        }
+
+        /* Demo Video Section */
+        .demo {
+          background-color: var(--light);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .demo::before {
+          content: '';
+          position: absolute;
+          top: -100px;
+          left: -100px;
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          background: var(--gradient-primary);
+          opacity: 0.1;
+          z-index: 0;
+        }
+
+        .demo-container {
+          position: relative;
+          z-index: 1;
+          text-align: center;
+        }
+
+        .video-wrapper {
+          position: relative;
+          padding-bottom: 56.25%;
+          height: 0;
+          overflow: hidden;
+          border-radius: 16px;
+          box-shadow: var(--shadow-lg);
+          margin: 0 auto;
+          max-width: 900px;
+        }
+
+        .video-wrapper iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+          background-color: white;
+        }
+
+        .testimonials-container {
+          text-align: center;
+        }
+
+        .testimonial-cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2.5rem;
+          margin-top: 4rem;
+        }
+
+        .testimonial-card {
+          background-color: white;
+          border-radius: 16px;
+          padding: 2.5rem;
+          box-shadow: var(--shadow);
+          text-align: left;
+          transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-content {
+          font-size: 1.125rem;
+          color: var(--dark);
+          margin-bottom: 2rem;
+          position: relative;
+        }
+
+        .testimonial-content::before {
+          content: '"';
+          font-size: 4rem;
+          color: var(--light-gray);
+          position: absolute;
+          top: -2rem;
+          left: -1rem;
+          opacity: 0.3;
+          font-family: serif;
+        }
+
+        .testimonial-person {
+          display: flex;
+          align-items: center;
+        }
+
+        .testimonial-avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 1rem;
+        }
+
+        .testimonial-name {
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        }
+
+        .testimonial-role {
+          font-size: 0.875rem;
+          color: var(--gray);
+        }
+
+        /* Pricing Section */
+        .pricing {
+          background-color: var(--light);
+        }
+
+        .pricing-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 3rem;
+        }
+
+        .toggle-label {
+          font-weight: 500;
+        }
+
+        .toggle-switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 32px;
+          margin: 0 1rem;
+        }
+
+        .toggle-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .toggle-slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: var(--light-gray);
+          transition: 0.4s;
+          border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+          position: absolute;
+          content: "";
+          height: 24px;
+          width: 24px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: 0.4s;
+          border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+          background-color: var(--primary);
+        }
+
+        input:checked + .toggle-slider:before {
+          transform: translateX(26px);
+        }
+
+        .pricing-cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+        }
+
+        .pricing-card {
+          background-color: white;
+          border-radius: 16px;
+          padding: 3rem 2rem;
+          box-shadow: var(--shadow);
+          text-align: center;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .pricing-card.popular::before {
+          content: 'Most Popular';
+          position: absolute;
+          top: 1.5rem;
+          right: -4rem;
+          background: var(--secondary);
+          color: white;
+          padding: 0.5rem 4rem;
+          transform: rotate(45deg);
+          font-size: 0.75rem;
+          font-weight: 600;
+        }
+
+        .pricing-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-name {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+          font-size: 3rem;
+          font-weight: 800;
+          margin-bottom: 0.5rem;
+        }
+
+        .pricing-duration {
+          color: var(--gray);
+          font-size: 0.875rem;
+          display: block;
+          margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+          margin-bottom: 2.5rem;
+          list-style: none;
+        }
+
+        .pricing-feature {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid var(--light-gray);
+        }
+
+        .pricing-feature:last-child {
+          border-bottom: none;
+        }
+
+        .pricing-feature i {
+          color: var(--success);
+          margin-right: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+          background: var(--gradient-primary);
+          color: white;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .cta::before,
+        .cta::after {
+          content: '';
+          position: absolute;
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cta::before {
+          top: -150px;
+          left: -150px;
+        }
+
+        .cta::after {
+          bottom: -150px;
+          right: -150px;
+        }
+
+        .cta-container {
+          position: relative;
+          z-index: 1;
+          padding: 6rem 2rem;
+        }
+
+        .cta-title {
+          font-size: 3rem;
+          margin-bottom: 1.5rem;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .cta-description {
+          font-size: 1.25rem;
+          margin-bottom: 2.5rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+          opacity: 0.9;
+        }
+
+        .btn-white {
+          background-color: white;
+          color: var(--primary);
+        }
+
+        .btn-white:hover {
+          background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        .footer {
+          background-color: var(--dark);
+          color: white;
+          padding: 5rem 0 2rem;
+        }
+
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1fr;
+          gap: 3rem;
+          margin-bottom: 4rem;
+        }
+
+        .footer-company .logo {
+          margin-bottom: 1.5rem;
+          color: white;
+        }
+
+        .footer-description {
+          color: var(--light-gray);
+          margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .social-link {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.1);
+          color: white;
+          transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+          background-color: var(--primary);
+        }
+
+        .footer-title {
+          font-size: 1.25rem;
+          margin-bottom: 1.5rem;
+          color: white;
+        }
+
+        .footer-links {
+          list-style: none;
+        }
+
+        .footer-link {
+          margin-bottom: 0.75rem;
+        }
+
+        .footer-link a {
+          color: var(--light-gray);
+        }
+
+        .footer-link a:hover {
+          color: white;
+        }
+
+        .footer-bottom {
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .copyright {
+          color: var(--light-gray);
+          font-size: 0.875rem;
+        }
+
+        .footer-bottom-links {
+          display: flex;
+          gap: 1.5rem;
+        }
+
+        .footer-bottom-link {
+          color: var(--light-gray);
+          font-size: 0.875rem;
+        }
+
+        .footer-bottom-link:hover {
+          color: white;
+        }
+
+        /* Email Signup (Centered in Footer) */
+        .footer .email-signup {
+          display: flex;
+          max-width: 400px;
+          margin: 1.5rem auto;
+          justify-content: center;
+        }
+
+        .email-input {
+          flex-grow: 1;
+          padding: 0.75rem 1rem;
+          border: none;
+          border-radius: 8px 0 0 8px;
+          outline: none;
+          font-family: inherit;
+        }
+
+.signup-btn {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem; /* Increased vertical padding to match .email-input */
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  background: var(--primary-dark);
+}
+
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+          .hero-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+          }
+
+          .hero-content {
+            max-width: 100%;
+            order: 2;
+          }
+
+          .hero-actions {
+            justify-content: center;
+          }
+
+          .hero-stats {
+            justify-content: center;
+          }
+
+          .hero-image {
+            order: 1;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          .footer-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-title {
+            font-size: 2rem;
+          }
+
+          .hero-title {
+            font-size: 2.5rem;
+          }
+
+          .nav-links {
+            display: none;
+          }
+
+          .mobile-menu-btn {
+            display: block;
+          }
+
+          .pricing-cards {
+            grid-template-columns: 1fr;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+          }
+
+          .footer-bottom {
+            flex-direction: column;
+            gap: 1rem;
+          }
+
+          .pricing-card.popular {
+            transform: scale(1.03);
+          }
+        }
+
+        @media (max-width: 576px) {
+          .container {
+            padding: 0 1.5rem;
+          }
+
+          .hero-actions {
+            flex-direction: column;
+          }
+
+          .hero-stats {
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+
+          .stat-item {
+            align-items: center;
+          }
+
+          .cta-title {
+            font-size: 2rem;
+          }
+
+          .testimonial-cards {
+            grid-template-columns: 1fr;
+          }
+        }
+    </style>
 </head>
-
-<body class="index-page">
-
-<header id="header" class="header d-flex align-items-center sticky-top">
-  <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
-      <h1 class="sitename">Aixgen Technologies</h1>
-      <h2 class="slogan">Digital Wallets & Lifestyle Finance</h2>  
-	  </a>
-
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
-          <li><a href="#about">Who we are</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#integration">Integration</a></li>
-    
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="index.html#goforward">Get Started</a>
-
+<body>
+<!-- Header -->
+<!-- Header -->
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav-container">
+            <a href="https://developer.aixgen.ai" class="logo" target="_blank">
+                <img src="assets/img/logo_aixgen.png" alt="Aixgen Logo" />
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Modules</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="https://developer.aixgen.ai" class="nav-link" target="_blank">Sandbox</a></li>
+                <li><a href="https://developer.aixgen.ai" class="nav-button" target="_blank">Get Started</a></li>
+            </ul>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1>Power Your Business with Aixgen's Global Fintech Platform</h1>
-            <p>Seamlessly integrate financial services, drive customer engagement, and boost revenue worldwide</p>
-            <div class="d-flex">
-              <a href="#goforward" class="btn-get-started">Get Started</a>
-              <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"></a>
-            </div>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img">
-            <img src="assets/img/hero-img-1.jpg" class="img-fluid animated" alt="">
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4">
-
-          
-
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Who we are</h2>
-        <p>To empower businesses and individuals with accessible, secure, and innovative financial solutions that create lasting positive impact in communities around the world</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
-            <h3>Leveraging technology and new business models to build the Finance 4.0</h3>
-            <p>
-              Aixgen Technologies is a dynamic fintech innovator, passionate about reshaping the global financial landscape. Our team of seasoned experts, engineers, and data scientists are dedicated to crafting cutting-edge solutions that empower businesses to thrive in the digital age.
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="container hero-container">
+        <div class="hero-content" data-aos="fade-right">
+            <span class="hero-tagline">Accelerate Fintech Innovation</span>
+            <h1 class="hero-title">Launch Your Fintech Product in <span>3 Months</span> with Aixgen</h1>
+            <p class="hero-description">
+                Aixgen Core Fintech Backend empowers developers and entrepreneurs with a comprehensive, API-driven infrastructure to build, launch, and scale digital financial services rapidly and securely.
             </p>
-            <a href="#" class="about-btn align-self-center align-self-xl-start"><span>About us</span> <i class="bi bi-chevron-right"></i></a>
-          </div>
 
-          <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
-
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-briefcase"></i>
-                <h4><a href="" class="stretched-link">Innovation</a></h4>
-                <p>We constantly strive to develop cutting-edge technologies that transform the financial landscape</p>
-              </div><!-- Icon-Box -->
-
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-gem"></i>
-                <h4><a href="" class="stretched-link">Collaboration</a></h4>
-                <p>We believe in working closely with our clients to understand their unique needs and goals</p>
-              </div><!-- Icon-Box -->
-
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-broadcast"></i>
-                <h4><a href="" class="stretched-link">Integrity</a></h4>
-                <p>We uphold the highest ethical standards in all our business practices</p>
-              </div><!-- Icon-Box -->
-
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-easel"></i>
-                <h4><a href="" class="stretched-link">Inclusion</a></h4>
-                <p>We strive to make financial services accessible to everyone, regardless of their background or location.</p>
-              </div><!-- Icon-Box -->
-
+            <div class="hero-actions">
+                <a href="https://developer.aixgen.ai" class="btn btn-primary" target="_blank">Get Started</a>
+                <a href="#demo" class="btn btn-outline">Watch Demo</a>
             </div>
-          </div>
 
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    
-
-    <!-- Services Section -->
-   <section id="industries" class="services section">
-
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Our Verticals: Proven Solutions for Every Industry</h2>
-    <p>See how our platform has helped businesses like yours achieve success in the digital marketplace.</p>
-  </div>
-
-  <div class="container">
-    <div class="row gy-4">
-       <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100" onclick="showDetails('fintech')">
-      <div class="service-item position-relative active"> <i class="bi bi-graph-up"></i>
-        <h4>Fintech</h4>
-        <p>Launch your superapp faster with our white-label platform. Gain agility, flexibility, and reach underserved markets.</p>
-      </div>
-    </div>
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200" onclick="showDetails('banks')">
-        <div class="service-item position-relative">
-          <i class="bi bi-bank2"></i>
-          <h4>Banks</h4>
-          <p>Modernize your digital banking and become a Living Bank with open banking capabilities and lifestyle finance integrations.</p>
-        </div>
-      </div>
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300" onclick="showDetails('retailers')">
-        <div class="service-item position-relative">
-          <i class="bi bi-shop"></i>
-          <h4>Retailers</h4>
-          <p>Streamline in-store and online payments, boost loyalty with rewards programs, and gain valuable customer insights.</p>
-        </div>
-      </div>
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400" onclick="showDetails('ecommerce')">
-        <div class="service-item position-relative">
-          <i class="bi bi-cart4"></i>
-          <h4>E-commerce</h4>
-          <p>Optimize your checkout process, accept payments globally, reduce cart abandonment, and drive sales growth.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="container" id="detailSection">
-    <div class="row gy-4 detail-content" id="fintechDetails" style="display: block;"> 
-		<h2>Accelerate Your Fintech Growth with a World-Class Superapp Platform</h2>
-		<p>Whether you're launching a new venture or scaling an existing one, our white-label platform empowers you to build a customized superapp that drives customer engagement and revenue.</p>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card feature-card">
-                    <div class="card-body">
-                        <i class="bi bi-card-checklist icon"></i>
-                        <h5 class="card-title">White-Label Solution</h5>
-                        <p class="card-text">Launch a fully branded superapp in record time, whether you're a startup or an established player. Tailor the user interface, features, and functionality to match your unique brand identity.</p>
-                    </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-value">83%</span>
+                    <span class="stat-label">Faster TTM</span>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card feature-card">
-                    <div class="card-body">
-                        <i class="bi bi-columns-gap icon"></i>
-                        <h5 class="card-title">Modular Platform</h5>
-                        <p class="card-text">Choose the financial services that align with your business goals. Easily add or remove modules like digital wallets, payment processing, savings accounts, loans, and investments as your needs evolve.</p>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-value">65%</span>
+                    <span class="stat-label">Lower Upfront Costs</span>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card feature-card">
-                    <div class="card-body">
-                        <i class="bi bi-plug icon"></i>
-                        <h5 class="card-title">Flexible APIs</h5>
-                        <p class="card-text">Seamlessly integrate our platform with your existing systems and third-party providers, giving you the freedom to innovate and expand your offerings.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card feature-card">
-                    <div class="card-body">
-                        <i class="bi bi-people icon"></i>
-                        <h5 class="card-title">Financial Inclusion Focus</h5>
-                        <p class="card-text">Reach underserved markets and expand your customer base with a platform designed for emerging economies, supporting multiple currencies and local payment methods.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card feature-card">
-                    <div class="card-body">
-                        <i class="bi bi-shield-lock icon"></i>
-                        <h5 class="card-title">Enterprise-Grade Security</h5>
-                        <p class="card-text">Protect your users' sensitive financial data with our robust security features and compliance protocols, meeting the highest industry standards.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card feature-card">
-                    <div class="card-body">
-                        <i class="bi bi-bar-chart icon"></i>
-                        <h5 class="card-title">Scalable Infrastructure</h5>
-                        <p class="card-text">Our platform is built to handle high transaction volumes and user growth, ensuring a seamless experience as your business scales.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card feature-card">
-                    <div class="card-body">
-                        <i class="bi bi-person-check icon"></i>
-                        <h5 class="card-title">Dedicated Support</h5>
-                        <p class="card-text">Our team of experts will provide personalized guidance throughout the implementation process and ongoing support to ensure your success.</p>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-value">100+</span>
+                    <span class="stat-label">APIs Integrated</span>
                 </div>
             </div>
         </div>
-		    
 
-        <h2 >How to go forward ?</h2>
-     <div id="goforward" class="row">
-    <div class="col-md-6">
-        <div class="card action-card">
-            <div class="card-body d-flex align-items-center">
-                <i class="bi bi-calendar2-check icon"></i> 
-                <div class="card-content">
-                    <h5 class="card-title">Book a Personalized Demo</h5>
-                    <p class="card-text">Discover how our platform can help you accelerate your fintech growth, no matter where you are in your journey.</p>
-                    <a href="https://calendly.com/aixgen/30min" class="btn btn-primary">Book Now</a>
-                </div>
+        <div class="hero-image" data-aos="fade-left">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/RsrULgELC2I" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card action-card">
-            <div class="card-body d-flex align-items-center">
-                <i class="bi bi-chat-dots icon"></i>
-                <div class="card-content">
-                    <h5 class="card-title">Request a Consultation</h5>
-                    <p class="card-text">Talk to our experts to discuss your unique requirements and get a tailored solution for your business.</p>
-                    <a href="https://calendly.com/aixgen/30min" class="btn btn-primary">Request Now</a>
+</section>
+
+<!-- CTA Section -->
+<section class="cta" id="cta">
+    <div class="cta-container">
+        <h2 class="cta-title" data-aos="fade-up">Join the Fintech Revolution</h2>
+        <p class="cta-description" data-aos="fade-up" data-aos-delay="100">
+            Experience a new era of financial innovation. Build your fintech product with our robust, secure, and scalable backend.
+        </p>
+
+        <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST" data-aos="fade-up" data-aos-delay="200">
+            <div class="email-signup">
+                <input type="email" class="email-input" name="email" placeholder="Enter your email" required />
+                <button type="submit" class="signup-btn">Get Started</button>
+            </div>
+        </form>
+
+        <p style="margin-top: 2rem; font-size: 0.875rem; opacity: 0.8;" data-aos="fade-up" data-aos-delay="300">
+            Flexible pricing plans to suit startups and enterprise-level fintechs.
+        </p>
+    </div>
+</section>
+
+<!-- Features (Modules) Section -->
+<section class="features section" id="features">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Core Financial Services Modules</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Explore our developer-focused fintech modules built for rapid integration and robust performance.
+        </p>
+
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <h3 class="feature-title">Digital Wallet & Account Management</h3>
+                <p class="feature-description">
+                    Multi-currency wallets with automated KYC/AML and real-time transaction monitoring powered by AI.
+                </p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3 class="feature-title">Card Issuance & Payment Processing</h3>
+                <p class="feature-description">
+                    Issue virtual and physical cards with dynamic spending controls and multi-gateway integration.
+                </p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3 class="feature-title">Rewards & Loyalty Management</h3>
+                <p class="feature-description">
+                    Integrate flexible, API-driven rewards programs to drive engagement and boost customer loyalty.
+                </p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="feature-title">AI-Driven Fraud Prevention</h3>
+                <p class="feature-description">
+                    Leverage Isolation Forests, Autoencoders, and Graph Neural Networks for real-time risk scoring and fraud detection.
+                </p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="feature-title">Security & Compliance Automation</h3>
+                <p class="feature-description">
+                    End-to-end encryption, automated KYC/AML, and audit logs to ensure global regulatory compliance.
+                </p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                <div class="feature-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="feature-title">Webhook & API Management</h3>
+                <p class="feature-description">
+                    A robust event-driven architecture with real-time webhooks and a developer-friendly API dashboard.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Demo Video Section -->
+<section class="demo section" id="demo">
+    <div class="container demo-container">
+        <h2 class="section-title" data-aos="fade-up">See Aixgen in Action</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Watch our demo video to learn how our API-driven fintech backend accelerates product development.
+        </p>
+
+        <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="200">
+            <iframe src="https://www.youtube.com/embed/l4RMFmWSfy8" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials section" id="testimonials">
+    <div class="container testimonials-container">
+        <h2 class="section-title" data-aos="fade-up">Trusted by Fintech Innovators</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Hear from developers and fintech leaders who have transformed their products with Aixgen.
+        </p>
+
+        <div class="testimonial-cards">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <p class="testimonial-content">
+                    Aixgen reduced our time-to-market by 83%. We launched our digital wallet within 3 months and dramatically lowered our upfront costs.
+                </p>
+                <div class="testimonial-person">
+                    <div class="testimonial-avatar">
+                        <img src="assets/img/team/team-1.jpg" alt="Alex Rivera" />
+                    </div>
+                    <div>
+                        <div class="testimonial-name">Alex Rivera</div>
+                        <div class="testimonial-role">CTO, FinLaunch</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <p class="testimonial-content">
+                    The robust API integrations and AI-powered fraud detection have transformed our operations. Aixgen is a game-changer for fintech startups.
+                </p>
+                <div class="testimonial-person">
+                    <div class="testimonial-avatar">
+                        <img src="assets/img/team/team-2.jpg" alt="Maria Lopez" />
+                    </div>
+                    <div>
+                        <div class="testimonial-name">Maria Lopez</div>
+                        <div class="testimonial-role">Founder, PayFlow</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                <p class="testimonial-content">
+                    As a developer, the comprehensive modules and clear API documentation made integrating fintech services seamless and secure.
+                </p>
+                <div class="testimonial-person">
+                    <div class="testimonial-avatar">
+                        <img src="assets/img/team/team-3.jpg" alt="Jordan Kim" />
+                    </div>
+                    <div>
+                        <div class="testimonial-name">Jordan Kim</div>
+                        <div class="testimonial-role">Lead Developer, SecurePay</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-		  
-    </div>
-</div>
-
-
-    <div class="row gy-4 detail-content" id="banksDetails" style="display: none;">
-      </div>
-
-    <div class="row gy-4 detail-content" id="retailersDetails" style="display: none;">
-      </div>
-
-    <div class="row gy-4 detail-content" id="ecommerceDetails" style="display: none;">
-      </div>
-  </div>
 </section>
 
 
+<!-- Pricing Section -->
+<section class="pricing section" id="pricing">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Flexible, Transparent Pricing</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Choose the plan that fits your fintech project—from startups to enterprise-level integrations.
+        </p>
+
+        <div class="pricing-toggle" data-aos="fade-up" data-aos-delay="200">
+            <span class="toggle-label">Monthly</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="billing-toggle" />
+                <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">
+          Yearly <span style="color: var(--secondary); font-weight: 600;">Save 20%</span>
+        </span>
+        </div>
+
+        <div class="pricing-cards">
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="pricing-name">Starter</h3>
+                <div class="pricing-price">$299</div>
+                <span class="pricing-duration">per month</span>
+
+                <ul class="pricing-features">
+                    <li class="pricing-feature"><i class="fas fa-check"></i> 1 Fintech Integration</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> API Access & Basic Compliance</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Digital Wallet Module</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Email Support</li>
+                </ul>
+
+                <a href="https://developer.aixgen.ai" class="btn btn-outline" target="_blank">Get Started</a>
+            </div>
+
+            <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="pricing-name">Pro</h3>
+                <div class="pricing-price">$999</div>
+                <span class="pricing-duration">per month</span>
+
+                <ul class="pricing-features">
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Up to 3 Integrations</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Advanced API & Custom Modules</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Priority Support</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Real-Time Analytics</li>
+                </ul>
+
+                <a href="https://developer.aixgen.ai" class="btn btn-primary" target="_blank">Get Started</a>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="500">
+                <h3 class="pricing-name">Enterprise</h3>
+                <div class="pricing-price">Custom</div>
+                <span class="pricing-duration">tailored solution</span>
+
+                <ul class="pricing-features">
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Unlimited Integrations</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Enterprise-Grade Security</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Custom API & Module Development</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> Dedicated 24/7 Support</li>
+                    <li class="pricing-feature"><i class="fas fa-check"></i> On-Premises Deployment Option</li>
+                </ul>
+
+                <a href="#cta" class="btn btn-outline">Contact Sales</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-company">
+                <a href="https://developer.aixgen.ai" class="logo" target="_blank">
+                    <img src="assets/img/logo_aixgen.png" alt="Aixgen Logo" />
+                </a>
+                <p class="footer-description">
+                    Empowering developers with a robust, scalable fintech backend to build innovative financial services.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-nav">
+                <h4 class="footer-title">Product</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#features">Modules</a></li>
+                    <li class="footer-link"><a href="#pricing">Pricing</a></li>
+                    <li class="footer-link"><a href="#">Documentation</a></li>
+                    <li class="footer-link"><a href="#">API Reference</a></li>
+                    <li class="footer-link"><a href="#">Roadmap</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav">
+                <h4 class="footer-title">Company</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#">About Us</a></li>
+                    <li class="footer-link"><a href="#">Careers</a></li>
+                    <li class="footer-link"><a href="#">Blog</a></li>
+                    <li class="footer-link"><a href="#">Press</a></li>
+                    <li class="footer-link"><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav">
+                <h4 class="footer-title">Stay Updated</h4>
+                <p class="footer-description">
+                    Subscribe to our newsletter for the latest fintech insights and product updates.
+                </p>
+                <div class="email-signup">
+                    <input type="email" class="email-input" placeholder="Your email address" />
+                    <button class="signup-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">&copy; 2025 Aixgen. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#" class="footer-bottom-link">Terms of Service</a>
+                <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                <a href="#" class="footer-bottom-link">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-// Function to show details (modified)
-function showDetails(categoryId) {
-    const detailSections = document.querySelectorAll('.detail-content');
-    detailSections.forEach(section => {
-        section.style.display = (section.id === categoryId + 'Details') ? 'block' : 'none';
+    // Initialize AOS animation library
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
     });
 
-    // Update button styles (optional)
-    const buttons = document.querySelectorAll('.feature-category-buttons button');
-    buttons.forEach(btn => {
-        if (btn.dataset.category === categoryId) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
 
-    // Scroll to detail section smoothly
-    const detailSection = document.getElementById('detailSection');
-    detailSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
 
-// Show Fintech details by default on page load
-showDetails('fintech');
+    // Pricing toggle
+    const billingToggle = document.getElementById('billing-toggle');
+    const pricingValues = document.querySelectorAll('.pricing-price');
+    const originalPrices = Array.from(pricingValues).map(el => el.textContent);
 
-
-
+    billingToggle.addEventListener('change', () => {
+      if (billingToggle.checked) {
+        // Yearly pricing (20% discount)
+        pricingValues.forEach((el, index) => {
+          if (originalPrices[index] !== 'Custom') {
+            const monthlyPrice = parseInt(originalPrices[index].replace('$',''));
+            const yearlyPrice = Math.round(monthlyPrice * 0.8);
+            el.textContent = '$' + yearlyPrice;
+          }
+        });
+        document.querySelectorAll('.pricing-duration').forEach(el => {
+          if (el.textContent !== 'tailored solution') {
+            el.textContent = 'per month, billed annually';
+          }
+        });
+      } else {
+        // Monthly pricing
+        pricingValues.forEach((el, index) => {
+          el.textContent = originalPrices[index];
+        });
+        document.querySelectorAll('.pricing-duration').forEach(el => {
+          if (el.textContent !== 'tailored solution') {
+            el.textContent = 'per month';
+          }
+        });
+      }
+    });
 </script>
-
-   
-    <!-- Features Section -->
-  <section id="features" class="features section">
-    <div class="container section-title" data-aos="fade-up">
-        <h2>Features</h2>
-        <p>Our comprehensive platform offers a wide range of financial and lifestyle services tailored to your needs.</p>
-    </div>
-
-      <div class="container feature-category-buttons" data-aos="fade-up" data-aos-delay="100">
-    <div class="col-md-3 text-center"> 
-        <button class="active" onclick="showFeatures('lifestyleFeatures')">Lifestyle Services</button>
-    </div>
-    <div class="col-md-3 text-center">
-        <button onclick="showFeatures('financialFeatures')">Financial Services</button>
-    </div>
-</div>
-
-    <div class="container">
-        <div class="row gy-4 feature-list" id="lifestyleFeatures">
-   
-            <div class="col-lg-3 col-md-4">
-      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#ewalletDescription" aria-expanded="false" aria-controls="ewalletDescription">
-        <i class="bi bi-wallet2"></i>
-        <h3>eWallet</h3>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="collapse feature-description" id="ewalletDescription">
-            <p>A secure and convenient digital wallet for storing funds, making payments, and managing finances.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4">
-      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#cashInOutDescription" aria-expanded="false" aria-controls="cashInOutDescription">
-        <i class="bi bi-cash-coin"></i>
-        <h3>Cash In/Out</h3>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="collapse feature-description" id="cashInOutDescription">
-            <p>Easily deposit and withdraw money from your digital wallet at supported locations or through online channels.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4">
-      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#sendMoneyDescription" aria-expanded="false" aria-controls="sendMoneyDescription">
-        <i class="bi bi-arrow-left-right"></i>
-        <h3>Send Money</h3>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="collapse feature-description" id="sendMoneyDescription">
-            <p>Quickly and securely transfer money to other users within the app or to external bank accounts.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4">
-      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#buyGoodsDescription" aria-expanded="false" aria-controls="buyGoodsDescription">
-        <i class="bi bi-cart"></i>
-        <h3>Buy Goods</h3>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="collapse feature-description" id="buyGoodsDescription">
-            <p>Make purchases directly from the app using your eWallet balance or linked payment methods.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4">
-      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#payBillsDescription" aria-expanded="false" aria-controls="payBillsDescription">
-        <i class="bi bi-receipt"></i>
-        <h3>Pay Bills</h3>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="collapse feature-description" id="payBillsDescription">
-            <p>Conveniently pay your utility bills, phone bills, and other recurring payments directly from the app.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4">
-      <div class="features-item" data-bs-toggle="collapse" data-bs-target="#buyAirtimeDescription" aria-expanded="false" aria-controls="buyAirtimeDescription">
-        <i class="bi bi-phone"></i>
-        <h3>Buy Airtime</h3>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="collapse feature-description" id="buyAirtimeDescription">
-            <p>Recharge your mobile phone or purchase airtime for others directly from your eWallet.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-           <div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#bulkDisbursementDescription" aria-expanded="false" aria-controls="bulkDisbursementDescription">
-        <i class="bi bi-people"></i>
-        <h3>Bulk Disbursement</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="bulkDisbursementDescription">
-                <p>Efficiently distribute funds to multiple recipients simultaneously, ideal for payroll, vendor payments, or other mass payouts.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#internationalRemittanceDescription" aria-expanded="false" aria-controls="internationalRemittanceDescription">
-        <i class="bi bi-globe"></i>
-        <h3>International Remittance</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="internationalRemittanceDescription">
-                <p>Send money across borders quickly and securely, with competitive exchange rates and low fees.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#dynamicQRDescription" aria-expanded="false" aria-controls="dynamicQRDescription">
-        <i class="bi bi-qr-code-scan"></i>
-        <h3>Dynamic QR</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="dynamicQRDescription">
-                <p>Generate unique QR codes for each transaction, providing a secure and convenient way for customers to pay.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#staticQRDescription" aria-expanded="false" aria-controls="staticQRDescription">
-        <i class="bi bi-qr-code"></i>
-        <h3>Static QR</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="staticQRDescription">
-                <p>Create reusable QR codes for fixed amounts, perfect for small businesses and individual sellers.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#inAppPaymentDescription" aria-expanded="false" aria-controls="inAppPaymentDescription">
-        <i class="bi bi-app-indicator"></i>
-        <h3>In-App Payment</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="inAppPaymentDescription">
-                <p>Seamlessly integrate payments directly into your mobile app, providing a convenient user experience.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#html5PaymentDescription" aria-expanded="false" aria-controls="html5PaymentDescription">
-        <i class="bi bi-code-slash"></i>
-        <h3>HTML5 Payment</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="html5PaymentDescription">
-                <p>Accept payments directly from your website using a simple and secure HTML5 payment form.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#onlinePaymentDescription" aria-expanded="false" aria-controls="onlinePaymentDescription">
-        <i class="bi bi-laptop"></i>
-        <h3>Online Payment</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="onlinePaymentDescription">
-                <p>Offer various online payment methods, including credit cards, debit cards, and digital wallets, for a flexible checkout experience.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-        </div>
-          
-    </div>
-
- <div class="container">
-        <div class="row gy-4 feature-list" id="financialFeatures" style="display: none;">
-           <div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#savingsAccountDescription" aria-expanded="false" aria-controls="savingsAccountDescription">
-        <i class="bi bi-piggy-bank"></i>
-        <h3>Savings Accounts</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="savingsAccountDescription">
-                <p>Grow your savings with competitive interest rates and flexible deposit options.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#checkingAccountDescription" aria-expanded="false" aria-controls="checkingAccountDescription">
-        <i class="bi bi-credit-card-2-front"></i>
-        <h3>Checking Accounts</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="checkingAccountDescription">
-                <p>Manage your everyday finances with easy access to your funds and convenient payment options.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#fixedDepositsDescription" aria-expanded="false" aria-controls="fixedDepositsDescription">
-        <i class="bi bi-calendar-event"></i>
-        <h3>Fixed Deposits</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="fixedDepositsDescription">
-                <p>Securely invest your money for a fixed period and earn attractive interest rates.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#investmentsDescription" aria-expanded="false" aria-controls="investmentsDescription">
-        <i class="bi bi-graph-up-arrow"></i>
-        <h3>Investments</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="investmentsDescription">
-                <p>Access a range of investment options to grow your wealth and achieve your financial goals.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#debitCardsDescription" aria-expanded="false" aria-controls="debitCardsDescription">
-        <i class="bi bi-credit-card"></i>
-        <h3>Debit Cards</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="debitCardsDescription">
-                <p>Make purchases and withdraw cash conveniently with a debit card linked to your account.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#creditCardsDescription" aria-expanded="false" aria-controls="creditCardsDescription">
-        <i class="bi bi-credit-card-2-back"></i>
-        <h3>Credit Cards</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="creditCardsDescription">
-                <p>Access credit for purchases and enjoy flexible repayment options with our credit card solutions.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-           <div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#prepaidCardsDescription" aria-expanded="false" aria-controls="prepaidCardsDescription">
-        <i class="bi bi-wallet"></i>
-        <h3>Prepaid Cards</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="prepaidCardsDescription">
-                <p>Control spending and easily manage your budget with reloadable prepaid cards.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#cardOperationsDescription" aria-expanded="false" aria-controls="cardOperationsDescription">
-        <i class="bi bi-gear"></i>
-        <h3>Card Operations</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="cardOperationsDescription">
-                <p>Manage all your card activities, such as PIN changes, transaction history, and blocking lost or stolen cards.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#personalLoansDescription" aria-expanded="false" aria-controls="personalLoansDescription">
-        <i class="bi bi-cash-stack"></i>
-        <h3>Personal Loans</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="personalLoansDescription">
-                <p>Get quick and easy access to personal loans for various needs with flexible repayment terms.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4">
-    <div class="features-item" data-bs-toggle="collapse" data-bs-target="#mortgagesDescription" aria-expanded="false" aria-controls="mortgagesDescription">
-        <i class="bi bi-house"></i>
-        <h3>Mortgages</h3>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="collapse feature-description" id="mortgagesDescription">
-                <p>Finance your dream home with our comprehensive mortgage solutions tailored to your financial situation.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-            </div>
-			 </div>
-</section>
-
-<script>
-	function showFeatures(categoryId) {
-    const featureLists = document.querySelectorAll('.feature-list');
-    featureLists.forEach(list => {
-        list.style.display = (list.id === categoryId) ? 'flex' : 'none';
-    });
-  
-    // Update button styles (optional)
-    const buttons = document.querySelectorAll('.feature-category-buttons button');
-    buttons.forEach(btn => {
-        if (btn.dataset.category === categoryId) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-}
-
-
-
-</script>
-
-
-
-<!-- /Features Section -->
-
-   
-
-    <!-- Pricing Section -->
-    <section id="integration" class="pricing section">
-
-     <div class="container section-title" data-aos="fade-up">
-  <h2>Integration Options</h2>
-  <p>Choose the integration method that best suits your development needs and timeline.</p>
-</div>
-<div class="container">
-  <div class="row gy-4">
-
-    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-      <div class="pricing-item">
-        <h3>Backend Only</h3>
-        <h4>API-Driven Flexibility</h4> 
-        <ul>
-          <li><i class="bi bi-check"></i> Full control over front-end development</li>
-          <li><i class="bi bi-check"></i> Seamless integration with your existing systems</li>
-          <li><i class="bi bi-check"></i> Leverage our robust and secure back-end infrastructure</li>
-          <li class="na"><i class="bi bi-x"></i> Aixgen-provided UI components</li>
-        </ul>
-        <a href="#goforward" class="buy-btn">Get Started</a>
-      </div>
-    </div>
-
-    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-      <div class="pricing-item featured">
-        <h3>SDK & Backend</h3>
-        <h4>Accelerated Development</h4>
-        <ul>
-          <li><i class="bi bi-check"></i> Customizable UI components with our SDK</li>
-          <li><i class="bi bi-check"></i> Faster time-to-market with pre-built features</li>
-          <li><i class="bi bi-check"></i> Benefit from our back-end expertise and security</li>
-          <li><i class="bi bi-check"></i> Balance control and speed</li>
-        </ul>
-        <a href="#goforward" class="buy-btn">Get Started</a>
-      </div>
-    </div>
-
-    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-      <div class="pricing-item">
-        <h3>Full-Stack</h3>
-        <h4>Complete Solution</h4>
-        <ul>
-          <li><i class="bi bi-check"></i> End-to-end solution, ready for deployment</li>
-          <li><i class="bi bi-check"></i> White-label your superapp with your branding</li>
-          <li><i class="bi bi-check"></i> Minimize development time and resources</li>
-          <li><i class="bi bi-check"></i> Ongoing support and maintenance</li>
-        </ul>
-        <a href="#goforward" class="buy-btn">Get Started</a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-        <!-- Announcements Section -->
-        <section id="announcements" class="section">
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Announcements</h2>
-                <p>Stay updated with our latest news and events.</p>
-            </div>
-            <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-6">
-                        <div class="announcement-item">
-                            <h4>Google Grant Announcement</h4>
-                            <p>We are thrilled to announce that Google has granted us $350,000.00 to further develop the Aixgen Fintech Platform!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="announcement-item">
-                            <h4>Upcoming Webinar - Nov 15th</h4>
-                            <p>Join us for an insightful webinar on November 15th, where we’ll discuss our platform’s features and how it supports fintech innovation.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Published Articles Section -->
-        <section id="articles" class="section">
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Published Articles</h2>
-                <p>Explore our latest articles on fintech and technology innovations.</p>
-            </div>
-            <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="article-item">
-                            <h4>Building a Digital Wallet </h4>
-                            <p>Walkthrough of the key steps involved in building a digital wallet....</p>
-                            <a href="#" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="article-item">
-                            <h4>Developing a P2P Payment App </h4>
-                            <p>Explore the unique challenges and opportunities in the B2B payments space...</p>
-                            <a href="#" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                    <!-- Add more articles as needed -->
-                </div>
-            </div>
-        </section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-      <h2>Contact Us</h2>
-<p>Have questions or need support? Reach out to us, and our team will be happy to assist you.</p>
-
-      </div><!-- End Section Title -->
-
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-          
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>sales.partners@aixgen.ai</p>
-              </div>
-            </div><!-- End Info Item -->
-			
-			   <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-             
-              <div>
-                <h3>Are you an investor ?</h3>
-                <p>We are actively seeking investors in financial technologies who share our vision and are ready to invest in our company's growth. Together, we can leverage our combined expertise and networks to scale our impact and revolutionize the global financial industry</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-        <div class="col-lg-7">
-  <form action="https://formspree.io/f/mnnaawqd" method="POST" enctype="multipart/form-data" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-    <div class="row gy-4">
-
-      <div class="col-md-12">
-        <label for="name" class="form-label">Your Name</label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-      </div>
-
-      <div class="col-md-12">
-        <label for="email" class="form-label">Your Email</label>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-      </div>
-
-      <div class="col-md-12">
-        <label for="subject" class="form-label">Subject</label>
-        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-      </div>
-
-      <div class="col-md-12">
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-      </div>
-      <div class="col-md-12">
-        <label for="upload" class="form-label">Your File (Optional)</label>
-        <input type="file" class="form-control" name="upload" id="upload">
-      </div>
-      
-      <div class="col-md-12 text-center mt-3">
-        <button type="submit" class="btn btn-primary">Send Message</button>
-        <div class="loading" style="display: none;">Sending...</div>
-        <div class="error-message"></div>
-        <div class="sent-message"></div>
-      </div>
-
-    </div>
-  </form>
-</div>
-
-<!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-<section id="thanks" style="display: none;"> 
-    <div class="container">
-        <h2>Thank you for your message!</h2>
-        <p>We'll get back to you soon.</p>
-        <a href="#hero" class="btn btn-primary">Back to Home</a> 
-    </div>
-</section>
-  </main>
-
-  <footer id="footer" class="footer">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Aixgen Technologies</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="social-links d-flex justify-content-center">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
- 
-    <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script defer src="assets/vendor/aos/aos.js"></script>
-
-    <script defer src="assets/js/main.js"></script>
-
-
 </body>
-
 </html>
